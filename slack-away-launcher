@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
 if [ -z $(pgrep -f slack-away-bot) ]; then
-    echo "Slack-away is not running. Executing /home/yonas/bin/slack-away now..."
+    echo "Slack-away is not running. Executing slack-away now..."
     $HOME/bin/slack-away-bot &
 fi
