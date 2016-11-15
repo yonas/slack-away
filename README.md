@@ -1,8 +1,8 @@
 # slack-away
 
-Slack-Away is a Bash script that automatically sets your active/away status in Slack.
+Slack-Away is a Bash script that automatically sets your active/away status in [Slack](https://slack.com).
 
-By default, Slack-Away will 
+By default, Slack-Away will set your status to Away on Slack if you are idle (no mouse or keyboard activity) for 10 minutes or more. Otherwise, you will be set to Active.
 
 ## Requirements
 
@@ -10,7 +10,7 @@ By default, Slack-Away will
 - Curl (`apt-get install curl`)
 - xprintidle (`apt-get install xprintidle`)
 
-## Install
+## Installation
 
 1. Install dependencies.
     ```
