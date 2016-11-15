@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# Generate a token at https://api.slack.com/docs/oauth-test-tokens
+#
+# Tokens are just for you! Never share tokens with other users or applications.
+# Do not publish tokens in public code repositories.
+token="<SLACK_TOKEN_HERE>"
+
+# Set idle timeout to be 10 minutes, in milliseconds.
+idle_timeout_minutes=10
+idle_timeout=$(( $idle_timeout_minutes*60*1000 ))
+
+while [ 1 ]
+do
+    # Get the Xorg idle time, in milliseconds.
+    idle=$(xprintidle)
+    
+    if [ $idle -gt $idle_timeout ]; then
+        # Set me to Away on Slack.
+        echo "Set me to Away on Slack."
+        curl "https://slack.com/api/users.setPresence?token=$token&presence=away&pretty=1"
+    else
+        # Set me to Active on Slack.
+        echo "Set me to Active on Slack."
+        curl "https://slack.com/api/users.setPresence?token=$token&presence=auto&pretty=1"
+    fi
+
+    # Loop every 15 seconds.
+    sleep 15
+done
